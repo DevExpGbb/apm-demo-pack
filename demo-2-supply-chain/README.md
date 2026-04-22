@@ -32,8 +32,8 @@ apm audit
 # POINT: "Info-level = harmless. Look how it tells me what kind."
 
 apm audit --verbose | head -40
-# -> shows codepoints (e.g., U+200D ZWJ -- emoji glue, kept by --strip)
-# "These are emoji joiners. APM knows the difference between glue and a payload."
+# -> shows codepoints (e.g., U+FE0F -- emoji presentation selector, kept by --strip)
+# "These are emoji metadata. APM knows the difference between cosmetic glyph hints and a payload."
 
 apm audit --ci
 # -> 6 lockfile-integrity checks ALL PASS:
