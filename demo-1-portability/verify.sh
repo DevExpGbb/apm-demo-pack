@@ -2,6 +2,7 @@
 # Demo 1 -- non-interactive smoke test.
 # Exits 0 if the demo will work on stage; non-zero otherwise.
 set -euo pipefail
+export COLUMNS=200 NO_COLOR=1
 
 DEMO_DIR="${HOME}/demos/apm-talk-1-verify"
 trap 'rm -rf "$DEMO_DIR"' EXIT

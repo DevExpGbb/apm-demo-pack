@@ -3,6 +3,7 @@
 # Skipped if not running from a clone with a DevExpGbb git remote
 # (auto-discovery requires the org context).
 set -euo pipefail
+export COLUMNS=200 NO_COLOR=1
 cd "$(dirname "$0")"
 
 if ! git remote -v 2>/dev/null | grep -qi "DevExpGbb/"; then
@@ -29,7 +30,7 @@ echo "[3/3] Beat 3: --no-policy bypass should work with loud warning"
 out=$(apm install --no-policy 2>&1)
 echo "$out" | grep -q "Policy enforcement disabled by --no-policy" \
   || { echo "FAIL: expected --no-policy warning"; echo "$out"; exit 1; }
-echo "$out" | grep -q "CI will still fail" \
+echo "$out" | grep -q "audit --ci" \
   || { echo "FAIL: expected CI reminder in --no-policy warning"; echo "$out"; exit 1; }
 
 # Cleanup

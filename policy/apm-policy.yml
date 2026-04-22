@@ -1,5 +1,5 @@
 name: devexpgbb-org-policy
-version: "1.1.0"
+version: "1.2.0"
 enforcement: block
 
 cache:
@@ -7,12 +7,12 @@ cache:
 
 dependencies:
   allow:
-    - "DevExpGbb/*"
-    - "microsoft/*"
-    - "github/*"
+    - "DevExpGbb/**"
+    - "microsoft/**"
+    - "github/**"
   deny:
     - "github/awesome-copilot/plugins/azure-cloud-development"
-    - "test-blocked/*"
+    - "test-blocked/**"
   require_resolution: project-wins
 
 mcp:

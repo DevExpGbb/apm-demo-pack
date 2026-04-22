@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Demo 2 -- non-interactive smoke test.
 set -euo pipefail
+export COLUMNS=200 NO_COLOR=1
 cd "$(dirname "$0")"
 
 echo "[1/6] Setup: install awesome-copilot deps"
