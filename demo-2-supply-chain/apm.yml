@@ -4,4 +4,8 @@ description: "Demo 2 -- audit + install-block fixture"
 
 dependencies:
   apm:
-    - github/awesome-copilot/plugins/azure-cloud-development
+    # devops-oncall is used by verify.sh: it has 'unusual characters' findings
+    # AND is not denied by DevExpGbb's policy (azure-cloud-development is denied
+    # for Demo 3, so Demo 2 can't use it from inside this clone).
+    # On stage, the presenter audits Demo 1's directory which has azure-cloud-development.
+    - github/awesome-copilot/plugins/devops-oncall
