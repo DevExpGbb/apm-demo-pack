@@ -9,3 +9,6 @@ dependencies:
     # for Demo 3, so Demo 2 can't use it from inside this clone).
     # On stage, the presenter audits Demo 1's directory which has azure-cloud-development.
     - github/awesome-copilot/plugins/devops-oncall
+
+compilation:
+  source_attribution: true

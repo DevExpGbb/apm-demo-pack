@@ -5,3 +5,6 @@ description: "Demo 3 -- subject to DevExpGbb org policy auto-discovery"
 dependencies:
   apm:
     - github/awesome-copilot/plugins/azure-cloud-development
+
+compilation:
+  source_attribution: true
