@@ -9,8 +9,9 @@ rm -rf apm_modules .apm/skills/azure-cloud-development .apm/skills/microsoft-doc
 apm install >/dev/null
 
 echo "[2/6] apm audit -- expect 'unusual characters' findings"
-apm audit 2>&1 | grep -q "unusual characters" \
-  || { echo "FAIL: expected 'unusual characters' in audit output"; exit 1; }
+audit_out=$(apm audit 2>&1 || true)
+echo "$audit_out" | grep -q "unusual characters" \
+  || { echo "FAIL: expected 'unusual characters' in audit output"; echo "$audit_out"; exit 1; }
 
 echo "[3/6] apm audit --ci -- expect exit 0"
 apm audit --ci >/dev/null
@@ -31,11 +32,12 @@ test ! -d .apm/skills/poisoned-reviewer-demo \
 mv apm.yml.snap apm.yml
 
 echo "[6/6] Optional --file beat"
-apm audit --file .apm/skills/poisoned-reviewer/SKILL.md 2>&1 | grep -q -i "critical" \
-  || { echo "FAIL: --file scan should report CRITICAL"; exit 1; }
-apm audit --file .apm/skills/poisoned-reviewer/SKILL.md --strip --dry-run 2>&1 \
-  | grep -q -i "would" \
-  || { echo "WARN: --strip --dry-run output didn't mention 'would' -- check manually"; }
+file_out=$(apm audit --file .apm/skills/poisoned-reviewer/SKILL.md 2>&1 || true)
+echo "$file_out" | grep -q -i "critical" \
+  || { echo "FAIL: --file scan should report CRITICAL"; echo "$file_out"; exit 1; }
+strip_out=$(apm audit --file .apm/skills/poisoned-reviewer/SKILL.md --strip --dry-run 2>&1 || true)
+echo "$strip_out" | grep -q -i "would" \
+  || echo "WARN: --strip --dry-run output didn't mention 'would' -- check manually"
 
 echo
 echo "[+] Demo 2 verified -- ready for stage."

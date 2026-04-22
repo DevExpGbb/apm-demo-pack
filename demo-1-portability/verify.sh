@@ -12,8 +12,9 @@ echo "[1/5] apm init"
 apm init -y >/dev/null
 
 echo "[2/5] apm search azure@awesome-copilot"
-apm search azure@awesome-copilot | grep -q "azure-cloud-development" \
-  || { echo "FAIL: expected 'azure-cloud-development' in search results"; exit 1; }
+search_out=$(apm search azure@awesome-copilot 2>&1)
+echo "$search_out" | grep -q "azure-cloud-development" \
+  || { echo "FAIL: expected 'azure-cloud-development' in search results"; echo "$search_out"; exit 1; }
 
 echo "[3/5] apm install azure-cloud-development@awesome-copilot"
 apm install azure-cloud-development@awesome-copilot >/dev/null
