@@ -1,0 +1,8 @@
+apm_modules/
+apm.lock.yaml
+audit.sarif
+.github/agents/
+.github/skills/
+demo-2-supply-chain/.apm/skills/azure-cloud-development/
+demo-2-supply-chain/.apm/skills/microsoft-docs/
+demo-3-policy/.apm/skills/azure-cloud-development/

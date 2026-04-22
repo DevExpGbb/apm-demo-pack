@@ -1,0 +1,8 @@
+name: apm-demo-pack-supply-chain
+version: "1.0.0"
+description: "Demo 2 -- audit + install-block fixture"
+
+dependencies:
+  apm:
+    - github/awesome-copilot/plugins/azure-cloud-development
+    - github/awesome-copilot/plugins/microsoft-docs
