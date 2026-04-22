@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 echo "[1/6] Setup: install awesome-copilot deps"
 rm -rf apm_modules .apm/skills/azure-cloud-development .apm/skills/microsoft-docs \
        .github/agents .github/skills audit.sarif apm.lock.yaml 2>/dev/null || true
-apm install >/dev/null
+apm install --no-policy >/dev/null  # bypass DevExpGbb org policy; this demo is not about policy
 
 echo "[2/6] apm audit -- expect 'unusual characters' findings"
 audit_out=$(apm audit 2>&1 || true)
