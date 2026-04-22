@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")"
 rm -rf apm_modules .github/agents .github/skills audit.sarif apm.lock.yaml \
-       .apm/skills/devops-oncall .apm/skills/2>/dev/null || true
+       .apm/skills/devops-oncall 2>/dev/null || true
 # Restore apm.yml in case install-block partially mutated it
 git checkout -- apm.yml 2>/dev/null || true
 echo "[+] Demo 2 reset (poisoned fixture preserved)."
